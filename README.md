@@ -12,11 +12,11 @@
     </tr>
     <tr>
       <td> Data level </td>
-       <td> ADASYN, CLUS, SMOTE, MWMOTE,Random Over/Undersampling,SPIDER, SmoteENN,SmoteTL </td>
+       <td> ADASYN, CLUS, SMOTE, MWMOTE, Random Over/Undersampling,SPIDER, SmoteENN, SmoteTL </td>
        </tr>
    <tr>
       <td> Ensemble-based learning </td>
-      <td> AdaC2,RUSBagging,ROSBagging,RBBagging, SMOTEBagging,RUSBoost,SMOTEBoost,EasyEnsemble,BalanceCascade</td>
+      <td> AdaC2, RUSBagging, ROSBagging, RBBagging, SMOTEBagging, RUSBoost, SMOTEBoost, EasyEnsemble, BalanceCascade</td>
       </tr>
    </table>
    
