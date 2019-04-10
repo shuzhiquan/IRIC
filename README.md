@@ -37,7 +37,7 @@ An object of class bagging, which is a list with the following components:
 #Load data set load(”Korean.RDa”) 
 #Run the script file of RBBagging 
 source(”BalanceBagging.R”)
- #Data split
+#Data split
 sub<−createDataPartition (Korean$Churn,p=0.75, list=FALSE) 
 trainset<−Korean [sub, ] 
 testset<−Korean[−sub, ] 
