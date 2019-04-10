@@ -1,6 +1,25 @@
 ## IRIC： Integrated R Library for imbalanced classification
 ### Introduction
-   There are several packages available to users which contain many techniques deal with imbalanced classification. However, there are still some algorithms are not implemented in R. Moreover, the existing techniques devoted to imbalanced classification are distributed in different R packages. These brings much inconvenience to users. In IRIC, we provide a set of implementations of 8 approaches for imbalanced classification and integrate another 11 existing popular approaches from data level, algorithm level and ensemble-based learning strategy into MM. In addition, we provide implementation of parallel of Bagging-based learning to improve the efficiency of model building. Specifically, we integrate the Bagging-based or Boosting-based models into one model separately named BalanceBagging and BalanceBoost.
+   There are several packages available to users which contain many techniques deal with imbalanced classification. However, there are still some algorithms are not implemented in R. Moreover, the existing techniques devoted to imbalanced classification are distributed in different R packages. These brings much inconvenience to users. In IRIC, we provide a set of implementations of 8 approaches for imbalanced classification and integrate another 11 existing popular approaches from data level, algorithm level and ensemble-based learning strategy into MM. In addition, we provide implementation of parallel of Bagging-based learning to improve the efficiency of model building. Specifically, we integrate the Bagging-based or Boosting-based models into one model separately named BalanceBagging and BalanceBoost. The methods included in IRIC are presented in Table1.
+   <table>
+    <tr>
+    <th>Strategy</th>
+    <th>Methods</th>
+    </tr>
+    <tr>
+    <td> Algorithm level </td>
+    <td>CSC4.5</td>
+    </tr>
+    <tr>
+      <td> Data level </td>
+       <td> ADASYN, CLUS, SMOTE, MWMOTE, </td>
+       </tr>
+   <tr>
+      <td> Ensemble-based learning </td>
+      <td> AdaC2,RUSBagging,ROSBagging </td>
+      </tr>
+   </table>
+   
 ### Installation
 R version >= 3.1. Download the repository from GitHub before apply the techniques.
 ### An Example
@@ -10,12 +29,12 @@ R version >= 3.1. Download the repository from GitHub before apply the technique
 ### An Example
 RBBagging
 #### Arguments
-form: a formula, as in the lm function.
-data: a data frame in which to interpret the variables named in the formula
-numBag: an integer, the number of trees to use.
-base: base learner
-type: type of learning, one of the SMOTEBagging, RUSBagging, RBBagging. See details below.
-allowParallel: whether generates subsets for base classifiers in parallel way or not. Take value true and false.
+form: a formula, as in the lm function.  
+data: a data frame in which to interpret the variables named in the formula.  
+numBag: an integer, the number of trees to use.  
+base: base learner.  
+type: type of learning, one of the SMOTEBagging, RUSBagging, RBBagging. See details below.  
+allowParallel: whether generates subsets for base classifiers in parallel way or not. Take value true and false.  
 #### Details
 Depending on the speciﬁed type one of the following ensemble classification methods is executed.  
 **SMOTEBagging**: an ensemble-based learning which embeds the SMOTE into the Bagging learning framework.  
