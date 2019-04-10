@@ -1,5 +1,3 @@
-# IRIC
-An R repository which integrates a wide set of solutions for imbalanced classification
 ## IRIC： Integrated R Library for imbalanced classification
 ### Introduction
    There are several packages available to users which contain many techniques deal with imbalanced classification. However, there are still some algorithms are not implemented in R. Moreover, the existing techniques devoted to imbalanced classification are distributed in different R packages. These brings much inconvenience to users. In IRIC, we provide a set of implementations of 8 approaches for imbalanced classification and integrate another 10 existing popular approaches from data level, algorithm level and ensemble-based learning strategy into MM. In addition, we provide implementation of parallel of Bagging-based learning to improve the efficiency of model building. Specifically, we integrate the Bagging-based or Boosting-based models into one model separately named BalanceBagging and BalanceBoost.
