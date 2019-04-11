@@ -12,7 +12,7 @@
     </tr>
     <tr>
       <td> Data level </td>
-       <td> ADASYN, CLUS, SMOTE, MWMOTE, Random Over/Undersampling,SPIDER, SmoteENN, SmoteTL </td>
+       <td> ADASYN, CLUS, SMOTE, MWMOTE, Random Over/Undersampling, SPIDER, SmoteENN, SmoteTL </td>
        </tr>
    <tr>
       <td> Ensemble-based learning </td>
@@ -63,7 +63,7 @@ testset<−Korean[−sub, ]
 #call the RBBaging for model training train 
 RB<−bbagging (Churn˜. , trainset , type=”RBBagging”)
 #prediction
-pre RB<−predict. bbag( train RB, testset )
+pre RB<−predict. bbag( RB, testset )
 ```
 
 
