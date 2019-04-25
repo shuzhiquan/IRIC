@@ -29,7 +29,7 @@ SMOTE, CSC4.5 and RBBagging
 ### Sample R code
 
 ```
-   #Example of SMOTE sampling
+   #Example of SMOTE
    #Load the package caret for data partitioning
    library(caret)
    #Load data set
