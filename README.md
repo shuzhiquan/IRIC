@@ -22,30 +22,10 @@ In IRIC, we provide a set of implementations of 8 approaches for imbalanced clas
    </table>
    
 ### Installation
-R version >= 3.1. Download the repository from GitHub before apply the techniques. The current version of IRIC v1.1.
-### An Example
+R version >= 3.1. Download the repository from GitHub before apply the techniques. The current version of IRIC is v1.1.
+### Illustrative Examples
 SMOTE, CSC4.5 and RBBagging 
-#### Arguments
-form: a formula, as in the lm function.  
-data: a data frame in which to interpret the variables named in the formula.  
-numBag: an integer, the number of trees to use.  
-base: base learner.  
-type: type of learning, one of the SMOTEBagging, RUSBagging, RBBagging. See details below.  
-allowParallel: whether generates subsets for base classifiers in parallel way or not. Take value true and false.  
-#### Details
-Depending on the speciﬁed type one of the following ensemble classification methods is executed.  
-**SMOTEBagging**: an ensemble-based learning which embeds the SMOTE into the Bagging learning framework.  
-**RUSBagging**: an ensemble-based learning which embeds the random under sampling into the Bagging learning framework.  
-**RBBaging**: Rougly Balanced Bagging it generates the subsets for base classifier by sampling based on binominal negative distribution.
-#### List of returned values
-An object of class bagging, which is a list with the following components:  
-  call: the function used  
-  base: the base learner  
-  type: type of algorithm  
-  numBag: the number of trees used   
-  classLabels: classLabels of training set.  
-  fits: the fitting result.  
-  class: bbag, type of ensemble learning  
+
 ### Sample R code
 
 ```
