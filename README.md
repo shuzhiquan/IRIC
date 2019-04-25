@@ -30,23 +30,23 @@ SMOTE, CSC4.5 and RBBagging
 
 ```
    #Example of SMOTE sampling
-	#Load the package caret for data partitioning
-	library(caret)
-	#Load data set
-	load("Korean.RDa")
-	#Run the script file of SMOTE
-	source("SMOTE.R")
-	#data split
-	sub<-createDataPartition(Korean$Churn,p=0.75,list=FALSE)
-	#Training set without sampling
-	trainset<-Korean[sub,]
-	testset<-Korean[-sub,]
-	#view the class ratio of the training set
-	table(trainset$Churn)
-	#call the SMOTE
-	newtrainset<-SMOTE(Churn~.,trainset) 
-	#view the class ratio of the new training set
-	table(newtrain$Churn)  
+   #Load the package caret for data partitioning
+   library(caret)
+   #Load data set
+   load("Korean.RDa")
+   #Run the script file of SMOTE
+   source("SMOTE.R")
+   #data split
+   sub<-createDataPartition(Korean$Churn,p=0.75,list=FALSE)
+   #Training set without sampling
+   trainset<-Korean[sub,]
+   testset<-Korean[-sub,]
+   #view the class ratio of the training set
+   table(trainset$Churn)
+   #call the SMOTE
+   newtrainset<-SMOTE(Churn~.,trainset) 
+   #view the class ratio of the new training set
+   table(newtrain$Churn)  
 ```
 
 
