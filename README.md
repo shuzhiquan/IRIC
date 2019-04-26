@@ -1,6 +1,6 @@
 ## IRIC： Integrated R Library for Imbalanced Classification
 ### Introduction
-IRIC is an R repository which is specially used for imbalanced classification. In IRIC, we provide a set of new implementations of 8 approaches in R for imbalanced classification and integrate another 11 existing popular approaches into it. All these approaches can be classfied into 3 strategies: data level, algorithm level and ensemble-based learning strategy. In addition, we provide parallel implementations of Bagging-based learning to improve the efficiency of model building. The approaches in IRIC are presented in table below.  The motivation of building IRIC is that we want to bring convenience to users by integrating a wide set of imbalanced calibration approaches in one library.
+IRIC is an R repository which is specially used for imbalanced classification. In IRIC, we provide a set of new implementations of 8 approaches in R for imbalanced classification and integrate another 11 existing popular approaches into it. All these approaches can be classfied into 3 strategies: data level, algorithm level and ensemble-based learning strategy. In addition, we provide parallel implementations of Bagging-based learning to improve the efficiency of model building. The approaches in IRIC are presented in the table below.  The motivation of building IRIC is that we want to bring convenience to users by integrating a wide set of imbalanced calibration approaches in one library.
 
    <table>
     <tr>
