@@ -24,35 +24,37 @@ IRIC is an R repository which is specially used for imbalanced classification. I
 ### Installation
 R version >= 3.1. Download the repository from GitHub before apply the techniques. The current version of IRIC is v1.1.
 ### Illustrative Examples
-SMOTE, CSC4.5 and RBBagging 
+SMOTE(Data level), CSC4.5 (Algorithm level) and RBBagging (Ensemble-based level) are presented as examples of IRIC usage.
 
 ### Sample R code
 
+
+#### SMOTE
 ```
-   #Example of SMOTE
-   #Load the package caret for data partitioning
-   library(caret)
-   #Load data set
-   load("Korean.RDa")
-   #Run the script file of SMOTE
-   source("SMOTE.R")
-   #data split
-   sub<-createDataPartition(Korean$Churn,p=0.75,list=FALSE)
-   #Training set without sampling
-   trainset<-Korean[sub,]
-   testset<-Korean[-sub,]
-   #view the class ratio of the training set
-   table(trainset$Churn)
-   #call the SMOTE
-   newtrainset<-SMOTE(Churn~.,trainset) 
-   #view the class ratio of the new training set
-   table(newtrain$Churn)  
+#Example of SMOTE
+#Load the package caret for data partitioning
+library(caret)
+#Load data set
+load("Korean.RDa")
+#Run the script file of SMOTE
+source("SMOTE.R")
+#data split
+sub<-createDataPartition(Korean$Churn,p=0.75,list=FALSE)
+#Training set without sampling
+trainset<-Korean[sub,]
+testset<-Korean[-sub,]
+#view the class ratio of the training set
+table(trainset$Churn)
+#call the SMOTE
+newtrainset<-SMOTE(Churn~.,trainset) 
+#view the class ratio of the new training set
+table(newtrain$Churn)  
 ```
 
 
 
 
-
+#### CSC4.5
 ```
 #Example of CSC4.5 
 #Training model
@@ -62,6 +64,8 @@ csc45train<-CSC45(Churn~.,trainset)
 csc45predict<-predict.CSC45(csc45predict,testset)
 ```
 
+
+#### RBBagging
 ```
 #Example of RBBagging 
 #Load the package caret for data partitioning library ( caret ) 
