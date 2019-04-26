@@ -22,9 +22,9 @@ IRIC is an R repository which is specially used for imbalanced classification. I
    </table>
    
 ### Installation
-R version >= 3.1. Download the repository from GitHub before apply the techniques. The current version of IRIC is v1.1.
+R version >= 3.1. Download the repository from GitHub before applying the techniques. The current version of IRIC is v1.1.
 ### Illustrative Examples
-SMOTE(Data level), CSC4.5 (Algorithm level) and RBBagging (Ensemble-based level) are presented as examples of IRIC usage.
+SMOTE(Data level), CSC4.5 (Algorithm level) and RBBagging (Ensemble-based level) are presented as examples of IRIC's usage.
 
 ### Sample R code
 
