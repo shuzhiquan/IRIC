@@ -28,17 +28,16 @@ IRIC provides a set of new implementations of 8 approaches in R for imbalanced c
    </table>
 
 - [Installation](#Installation)
-- [Examples](#Examples)
+- [CSC4.5](#CSC4.5)
 
 ## Installation
 R version >= 3.1. Download the repository from GitHub before applying the techniques. The current version of IRIC is v1.1.
 ## Examples
 SMOTE(Data level), CSC4.5 (Algorithm level) and RBBagging (Ensemble-based level) are presented as examples of IRIC's usage.
-
-### Sample R code
-
-
-#### SMOTE
+- [SMOTE](#SMOTE)
+- [Examples](#Examples)
+- [RBBagging](#RBBagging)
+### SMOTE
 ```
 #Example of SMOTE
 #Load the package caret for data partitioning
@@ -59,11 +58,7 @@ newtrainset<-SMOTE(Churn~.,trainset)
 #view the class ratio of the new training set
 table(newtrain$Churn)  
 ```
-
-
-
-
-#### CSC4.5
+### CSC4.5
 ```
 #Example of CSC4.5 
 #Training model
@@ -72,9 +67,7 @@ source("CSC45.R")
 csc45train<-CSC45(Churn~.,trainset)
 csc45predict<-predict.CSC45(csc45predict,testset)
 ```
-
-
-#### RBBagging
+### RBBagging
 ```
 #Example of RBBagging 
 #Load the package caret for data partitioning library ( caret ) 
