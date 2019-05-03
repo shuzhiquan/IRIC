@@ -23,7 +23,7 @@ The current version of IRIC(v1.1) provides a set of 19 approaches for imbalanced
     </tr>
     <tr>
       <td> Data level </td>
-       <td> ADASYN, CLUS, SMOTE, MWMOTE, Random Over/Undersampling, SPIDER, SmoteENN, SmoteTL </td>
+       <td> - ADASYN, CLUS, SMOTE, MWMOTE, Random Over/Undersampling, SPIDER, SmoteENN, SmoteTL </td>
        </tr>
    <tr>
       <td> Ensemble-based learning </td>
