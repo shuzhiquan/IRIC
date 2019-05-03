@@ -30,7 +30,7 @@ The current version of IRIC(v1.1) provides a set of 19 approaches for imbalanced
    </table>
 
 ## Installation
-Download the repository from GitHub before applying the techniques.  R version >= 3.1. D
+Download the repository from GitHub before applying the techniques.  R version >= 3.1.
 ## Examples
 SMOTE(Data level), CSC4.5 (Algorithm level) and RBBagging (Ensemble-based level) are presented as examples of IRIC's usage.
 - [SMOTE](#SMOTE)
