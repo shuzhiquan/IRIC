@@ -10,7 +10,7 @@ IRIC is an R library for imbalanced classification,  which will bring convenienc
 ---
 
 ## Introduction
-The current version of IRIC(v1.1) provides a set of 19 approaches for imbalanced classification, in which 8 approaches are new implementations in R. All these approaches can be classfied into 3 strategies: data level, algorithm level and ensemble-based learning strategy. In addition, we provide parallel implementations of Bagging-based soluction to improve the efficiency of model building. All approaches in IRIC are presented in the table below.
+The current version of IRIC(v1.1) provides a set of 19 approaches for imbalanced classification, in which 8 approaches are new implementations in R. All these approaches can be classfied into 3 strategies: data level, algorithm level and ensemble-based strategy. In addition, we provide parallel implementations of Bagging-based soluction to improve the efficiency of model building. All approaches in IRIC are presented in the table below.
 
    <table>
     <tr>
@@ -26,7 +26,7 @@ The current version of IRIC(v1.1) provides a set of 19 approaches for imbalanced
        <td> ADASYN, CLUS, SMOTE, MWMOTE, Random Over/Undersampling, SPIDER, SmoteENN, SmoteTL </td>
        </tr>
    <tr>
-      <td> Ensemble-based learning </td>
+      <td> Ensemble-based </td>
       <td> AdaC2, RUSBagging, ROSBagging, RBBagging, SMOTEBagging, RUSBoost, SMOTEBoost, EasyEnsemble, BalanceCascade</td>
       </tr>
    </table>
