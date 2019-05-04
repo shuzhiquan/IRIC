@@ -22,14 +22,99 @@ The current version of IRIC(v1.1) provides a set of 19 approaches for imbalanced
     <td>CSC4.5</td>
     </tr>
     <tr>
-      <td> Data level </td>
-       <td> ADASYN, CLUS, SMOTE, MWMOTE, Random Over/Undersampling, SPIDER, SmoteENN, SmoteTL </td>
+      <td> Data level </td>    
+       <td> ADASYN, CLUS,  MWMOTE, Random Over/Undersampling, SPIDER, SmoteENN, SmoteTL </td>
        </tr>
    <tr>
       <td> Ensemble-based </td>
       <td> AdaC2, RUSBagging, ROSBagging, RBBagging, SMOTEBagging, RUSBoost, SMOTEBoost, EasyEnsemble, BalanceCascade</td>
       </tr>
    </table>
+
+<table border=0 cellpadding=0 cellspacing=0 width=843 style='border-collapse:
+ collapse;table-layout:fixed;width:632pt'>
+ <col width=189 style='mso-width-source:userset;mso-width-alt:6048;width:142pt'>
+ <col width=171 style='mso-width-source:userset;mso-width-alt:5472;width:128pt'>
+ <col width=411 style='mso-width-source:userset;mso-width-alt:13152;width:308pt'>
+ <col width=72 style='width:54pt'>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl70 width=189 style='height:16.5pt;width:142pt'>Strategy</td>
+  <td class=xl70 width=171 style='width:128pt'>Submodule</td>
+  <td class=xl70 width=411 style='width:308pt'>Method</td>
+  <td class=xl65 width=72 style='width:54pt'></td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl70 style='height:16.5pt;border-top:none'>Algorithm
+  level</td>
+  <td class=xl70 style='border-top:none'>Cost-sensitive learning</td>
+  <td class=xl70 style='border-top:none'>CSC4.5</td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td rowspan=3 height=66 class=xl71 style='border-bottom:.5pt solid black;
+  height:49.5pt;border-top:none'>Data level</td>
+  <td class=xl66 style='border-top:none'>Oversampling</td>
+  <td class=xl66 style='border-top:none'>SMOTE，MWMOTE，ADASYN，Random
+  Oversampling</td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl65 style='height:16.5pt'>Undersampling</td>
+  <td class=xl65>CLUS，Random Undersampling</td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl69 style='height:16.5pt'>Hybrid Sampling</td>
+  <td class=xl69>SmoteENN, SmoteTL, SPIDER</td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td rowspan=3 height=66 class=xl67 style='border-bottom:.5pt solid black;
+  height:49.5pt'>Ensemble-based learning</td>
+  <td class=xl65>BalanceBagging</td>
+  <td class=xl65>RUSBagging, ROSBagging, RBBagging, SMOTEBagging</td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl65 style='height:16.5pt'>BalanceBoost</td>
+  <td class=xl65>RUSBoost, SMOTEBoost, AdaC2</td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl69 style='height:16.5pt'>Hybrid Ensemble</td>
+  <td class=xl69>EasyEnsemble, BalanceCascade</td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl65 style='height:16.5pt'></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl65 style='height:16.5pt'></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl65 style='height:16.5pt'></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=189 style='width:142pt'></td>
+  <td width=171 style='width:128pt'></td>
+  <td width=411 style='width:308pt'></td>
+  <td width=72 style='width:54pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+
+
 
 ## Installation
 Download the code from GitHub repository before and then apply the techniques.  R version >= 3.1.
