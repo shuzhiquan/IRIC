@@ -38,10 +38,9 @@ The current version of IRIC(v1.1) provides a set of 19 approaches for imbalanced
  <col width=411 style='mso-width-source:userset;mso-width-alt:13152;width:308pt'>
  <col width=72 style='width:54pt'>
  <tr height=22 style='height:16.5pt'>
-  <td height=22 class=xl70 width=189 style='height:16.5pt;width:142pt'>Strategy</td>
-  <td class=xl70 width=171 style='width:128pt'>Submodule</td>
-  <td class=xl70 width=411 style='width:308pt'>Method</td>
-  <td class=xl65 width=72 style='width:54pt'></td>
+  <th height=22 class=xl70 width=189 style='height:16.5pt;width:142pt'>Strategy</th>
+  <th class=xl70 width=171 style='width:128pt'>Submodule</th>
+  <th class=xl70 width=411 style='width:308pt'>Method</th>
  </tr>
  <tr height=22 style='height:16.5pt'>
   <td height=22 class=xl70 style='height:16.5pt;border-top:none'>Algorithm
