@@ -77,14 +77,6 @@ The current version of IRIC(v1.1) provides a set of 19 approaches for imbalanced
   <td height=22 class=xl69 style='height:16.5pt'>Hybrid Ensemble</td>
   <td class=xl69>EasyEnsemble, BalanceCascade</td>
  </tr>
- <![if supportMisalignedColumns]>
- <tr height=0 style='display:none'>
-  <td width=189 style='width:142pt'></td>
-  <td width=171 style='width:128pt'></td>
-  <td width=411 style='width:308pt'></td>
-  <td width=72 style='width:54pt'></td>
- </tr>
- <![endif]>
 </table>
 
 
