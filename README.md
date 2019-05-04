@@ -62,7 +62,6 @@ The current version of IRIC(v1.1) provides a set of 19 approaches for imbalanced
  <tr height=22 style='height:16.5pt'>
   <td height=22 class=xl69 style='height:16.5pt'>Hybrid Sampling</td>
   <td class=xl69>SmoteENN, SmoteTL, SPIDER</td>
-  <td class=xl65></td>
  </tr>
  <tr height=22 style='height:16.5pt'>
   <td rowspan=3 height=66 class=xl67 style='border-bottom:.5pt solid black;
