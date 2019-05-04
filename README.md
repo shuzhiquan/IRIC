@@ -47,7 +47,6 @@ The current version of IRIC(v1.1) provides a set of 19 approaches for imbalanced
   level</td>
   <td class=xl70 style='border-top:none'>Cost-sensitive learning</td>
   <td class=xl70 style='border-top:none'>CSC4.5</td>
-  <td class=xl65></td>
  </tr>
  <tr height=22 style='height:16.5pt'>
   <td rowspan=3 height=66 class=xl71 style='border-bottom:.5pt solid black;
@@ -55,12 +54,10 @@ The current version of IRIC(v1.1) provides a set of 19 approaches for imbalanced
   <td class=xl66 style='border-top:none'>Oversampling</td>
   <td class=xl66 style='border-top:none'>SMOTE，MWMOTE，ADASYN，Random
   Oversampling</td>
-  <td class=xl65></td>
  </tr>
  <tr height=22 style='height:16.5pt'>
   <td height=22 class=xl65 style='height:16.5pt'>Undersampling</td>
   <td class=xl65>CLUS，Random Undersampling</td>
-  <td class=xl65></td>
  </tr>
  <tr height=22 style='height:16.5pt'>
   <td height=22 class=xl69 style='height:16.5pt'>Hybrid Sampling</td>
@@ -72,35 +69,14 @@ The current version of IRIC(v1.1) provides a set of 19 approaches for imbalanced
   height:49.5pt'>Ensemble-based learning</td>
   <td class=xl65>BalanceBagging</td>
   <td class=xl65>RUSBagging, ROSBagging, RBBagging, SMOTEBagging</td>
-  <td class=xl65></td>
  </tr>
  <tr height=22 style='height:16.5pt'>
   <td height=22 class=xl65 style='height:16.5pt'>BalanceBoost</td>
   <td class=xl65>RUSBoost, SMOTEBoost, AdaC2</td>
-  <td class=xl65></td>
  </tr>
  <tr height=22 style='height:16.5pt'>
   <td height=22 class=xl69 style='height:16.5pt'>Hybrid Ensemble</td>
   <td class=xl69>EasyEnsemble, BalanceCascade</td>
-  <td class=xl65></td>
- </tr>
- <tr height=22 style='height:16.5pt'>
-  <td height=22 class=xl65 style='height:16.5pt'></td>
-  <td class=xl65></td>
-  <td class=xl65></td>
-  <td class=xl65></td>
- </tr>
- <tr height=22 style='height:16.5pt'>
-  <td height=22 class=xl65 style='height:16.5pt'></td>
-  <td class=xl65></td>
-  <td class=xl65></td>
-  <td class=xl65></td>
- </tr>
- <tr height=22 style='height:16.5pt'>
-  <td height=22 class=xl65 style='height:16.5pt'></td>
-  <td class=xl65></td>
-  <td class=xl65></td>
-  <td class=xl65></td>
  </tr>
  <![if supportMisalignedColumns]>
  <tr height=0 style='display:none'>
