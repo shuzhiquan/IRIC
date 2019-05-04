@@ -14,7 +14,7 @@ The current version of IRIC (v1.1) provides a set of 19 approaches for imbalance
 
 <body lang=ZH-CN style='text-justify-trim:punctuation'>
 
-<div class=WordSection1 style='layout-grid:15.6pt'>
+<div class=WordSection1 style='text-justify-trim:punctuation'>
 
 <p style=text-align:justify text-justify:inter-ideograph class=MsoNormal><span lang=EN-US style='font-family:"Segoe UI",sans-serif;color:#24292E'> The current version of IRIC (v1.1) provides a set of 19 approaches for imbalanced classification, in which 8 approaches are new implementations in R. All these approaches can be classified into 3 strategies: data level, algorithm level and ensemble-based strategy. In addition, we provide parallel implementations of Bagging-based solution to improve the efficiency of model building. All approaches in IRIC are presented in the table below.</span></span></p>
 
