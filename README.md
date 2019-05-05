@@ -10,7 +10,7 @@ IRIC is an R library for imbalanced classification,  which will bring convenienc
 ---
 
 ## Introduction	
-<p align="text-align:justify">The current version of IRIC (v1.1) provides a set of 19 approaches for imbalanced classification, in which 8 approaches are new implementations in R. All these approaches can be classified into 3 strategies: data level, algorithm level and ensemble-based strategy. In addition, we provide parallel implementations of Bagging-based solution to improve the efficiency of model building. All approaches in IRIC are presented in the table below.</p>
+<p style="text-align:justify";>The current version of IRIC (v1.1) provides a set of 19 approaches for imbalanced classification, in which 8 approaches are new implementations in R. All these approaches can be classified into 3 strategies: data level, algorithm level and ensemble-based strategy. In addition, we provide parallel implementations of Bagging-based solution to improve the efficiency of model building. All approaches in IRIC are presented in the table below.</p>
 
 
 <table border=0 cellpadding=0 cellspacing=0 width=843 style='border-collapse:
