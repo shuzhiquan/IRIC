@@ -8,90 +8,105 @@
 # Cybernetics, IEEE Transactions on 39(2): 539-550.
 #========================================================================
 EasyEnsemble <-
-  function(x, ...)
-    UseMethod("EasyEnsemble")
+    function(x, ...)
+        UseMethod("EasyEnsemble")
 
 EasyEnsemble.formula <-
-  function(form, data, iter = 4, allowParallel = FALSE, ...)
-  {
-    # Input:
-    #    form: model formula
-    #    data: training dataset
-    #    iter: number of iterations to train 
-    library(foreach)
-    if (allowParallel) library(doParallel) 
-
-    funcCall <- match.call(expand.dots = FALSE)
-    tgt <- which(names(data) == as.character(form[[2]]))
-    classTable   <- table(data[, tgt])
-    classTable   <- sort(classTable, decreasing = TRUE)
-    classLabels  <- names(classTable)
-    indexMaj <- which(data[, tgt] == classLabels[1])
-    indexMin <- which(data[, tgt] == classLabels[2])
-    numMin <- length(indexMin)
-    numMaj <- length(indexMaj)
-    H      <- list()
-    
-    fitter <- function(form, data, indexMaj, numMin, indexMin)
+    function(x, y, iter = 4, allowParallel = FALSE, ...)
     {
-      source("BalanceBoost.R")
-      indexMajCurrent <- sample(indexMaj, numMin)
-      dataCurrent <- data[c(indexMin, indexMajCurrent),]      
-      out <- bboost(form, dataCurrent, type = "AdaBoost")
-    }
-    if (allowParallel) {
-      `%op%` <- `%dopar%`
-      cl <- makeCluster(2)
-      registerDoParallel(cl)
-    } else {
-      `%op%` <- `%do%`
-    }
-    H  <- foreach(i = seq(1:iter),
+        # Input:
+        #       x: A data frame of the predictors from training data
+        #       y: A vector of response variable from training data
+        #    iter: Iterations to train base classifiers
+        # allowParallel: A logical number to control the parallel computing. If allowParallel =TRUE, the function is run using parallel techniques
+        
+        
+        library(foreach)
+        if (allowParallel) library(doParallel) 
+        
+        data <- data.frame(x, y)
+        tgt <- length(data)
+        funcCall <- match.call(expand.dots = FALSE)
+        tgt <- which(names(data) == as.character(form[[2]]))
+        classTable   <- table(data[, tgt])
+        classTable   <- sort(classTable, decreasing = TRUE)
+        classLabels  <- names(classTable)
+        indexMaj <- which(data[, tgt] == classLabels[1])
+        indexMin <- which(data[, tgt] == classLabels[2])
+        numMin <- length(indexMin)
+        numMaj <- length(indexMaj)
+        
+        x.nam <- names(x)
+        form <- as.formula(paste("y ~ ", paste(x.nam, collapse = "+")))
+        H      <- list()
+        
+        fitter <- function(form, data, indexMaj, numMin, indexMin)
+        {
+            source("code/Ensemble-based level/BalanceBoost.R")
+            indexMajCurrent <- sample(indexMaj, numMin)
+            dataCurrent <- data[c(indexMin, indexMajCurrent),]      
+            out <- bboost.formula(dataCurrent[, -tgt], dataCurrent[,tgt], type = "AdaBoost")
+        }
+        if (allowParallel) {
+            `%op%` <- `%dopar%`
+            cl <- makeCluster(2)
+            registerDoParallel(cl)
+        } else {
+            `%op%` <- `%do%`
+        }
+        H  <- foreach(i = seq(1:iter),
                       .verbose = FALSE,
                       .errorhandling = "stop") %op% fitter(form, data , indexMaj, numMin, indexMin)
-    
-    if (allowParallel) stopCluster(cl)
-    
-    iter   <- sum(sapply(H,"[[", 5))
-    fits   <- unlist(lapply(H,"[[", 6), recursive = FALSE) 
-    alphas <- unlist(lapply(H,"[[", 7))
-    structure(
-      list(call       = funcCall    ,
-           iter       = iter        ,
-           fits       = fits        ,
-           base       = H[[1]]$base ,
-           alphas     = alphas      ,
-           classLabels = classLabels),
-      class = "EasyEnsemble")
-  }
+        
+        if (allowParallel) stopCluster(cl)
+        
+        iter   <- sum(sapply(H,"[[", 5))
+        fits   <- unlist(lapply(H,"[[", 6), recursive = FALSE) 
+        alphas <- unlist(lapply(H,"[[", 7))
+        structure(
+            list(call       = funcCall    ,
+                 iter       = iter        ,
+                 fits       = fits        ,
+                 base       = H[[1]]$base ,
+                 alphas     = alphas      ,
+                 classLabels = classLabels),
+            class = "EasyEnsemble")
+    }
 
 
 predict.EasyEnsemble <-
-  function(obj, data = NULL, type = "class")
-  {
-    if(is.null(data)) 
-      stop("please provide a data set for prediction")
-    if (!type %in% c("class", "probability"))
-      stop("wrong setting with type")
-    classLabels <- obj$classLabels
-    numClass    <- length(classLabels)
-    numIns      <- dim(data)[1]
-    weight      <- obj$alphas
-    btPred      <- sapply(obj$fits, obj$base$pred, data = data, type ="class")    
-    classfinal  <- matrix(0, ncol = numClass, nrow = numIns)
-    colnames(classfinal) <- classLabels
-    for (i in 1:numClass){
-      classfinal[, i] <- matrix(as.numeric(btPred == classLabels[i]), nrow = numIns)%*%weight
-    }
-    if (type == "class")
+    function(obj, x, y, type = "class")
     {
-      out <- factor(classLabels[apply(classfinal, 1, which.max)], levels = classLabels)
-    } else {
-      out <- data.frame(classfinal/rowSums(classfinal))
+        
+        #  input 
+        #     obj: Output from bboost.formula
+        #       x: A data frame of the predictors from testing data
+        #       y: A vector of response variable from testing data
+        
+        if(is.null(x)) stop("please provide predictors for prediction")
+        if(is.null(y)) stop("please provide a label vector for prediction")
+        if (!type %in% c("class", "probability"))
+            stop("wrong setting with type")
+        data <- data.frame(x, y)
+        classLabels <- obj$classLabels
+        numClass    <- length(classLabels)
+        numIns      <- dim(data)[1]
+        weight      <- obj$alphas
+        btPred      <- sapply(obj$fits, obj$base$pred, data = data, type ="class")    
+        classfinal  <- matrix(0, ncol = numClass, nrow = numIns)
+        colnames(classfinal) <- classLabels
+        for (i in 1:numClass){
+            classfinal[, i] <- matrix(as.numeric(btPred == classLabels[i]), nrow = numIns)%*%weight
+        }
+        if (type == "class")
+        {
+            out <- factor(classLabels[apply(classfinal, 1, which.max)], levels = classLabels)
+        } else {
+            out <- data.frame(classfinal/rowSums(classfinal))
+        }
+        out
+        
     }
-    out
-
-  }
 
 
 
