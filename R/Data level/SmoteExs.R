@@ -30,7 +30,7 @@ SmoteExs<-
     newExs  <-  matrix(ncol = numCol-1, nrow = numRow*numExs)
     
     indexDiff <- sapply(dataX, function(x) length(unique(x)) > 1)
-    source("Numeralize.R")
+    source("code/Data level/Numeralize.R")
     numerMatrix <- Numeralize(dataX[ ,indexDiff])
     require("RANN")
     id_order <- nn2(numerMatrix, numerMatrix, k+1)$nn.idx
