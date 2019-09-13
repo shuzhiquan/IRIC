@@ -9,7 +9,7 @@ bboost <-
     function(x, ...)
         UseMethod("bboost")
 
-bboost.formula <-
+bboost.data.frame <-
     function(x, y, iter = 40, base =  treeBoost, type = "AdaBoost", costRatio = 56/11, ...)
     {
         # Input:
