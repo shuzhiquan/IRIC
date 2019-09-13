@@ -11,7 +11,7 @@ EasyEnsemble <-
     function(x, ...)
         UseMethod("EasyEnsemble")
 
-EasyEnsemble.formula <-
+EasyEnsemble.data.frame <-
     function(x, y, iter = 4, allowParallel = FALSE, ...)
     {
         # Input:
