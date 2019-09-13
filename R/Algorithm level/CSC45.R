@@ -14,7 +14,7 @@ CSC45 <-
         UseMethod("CSC45")
 
 # default method
-CSC45.formula <- 
+CSC45.data.frame <- 
     function(x, y, pruning = TRUE, MDL = TRUE, minIns = 2, costRatio  = 11/56)
     {           
         # Input:
