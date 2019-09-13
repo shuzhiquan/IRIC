@@ -12,7 +12,7 @@ BalanceCascade <-
         UseMethod("BalanceCascade")
 
 
-BalanceCascade.formula  <-
+BalanceCascade.data.frame  <-
     function (x, y, iter = 4)
     {
         # Input:
