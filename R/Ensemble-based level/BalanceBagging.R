@@ -9,7 +9,7 @@ bbaging <-
         UseMethod("bbaging")
 
 
-bbaging.formula <-
+bbaging.data.frame <-
     function(x, y, numBag = 40, base = treeBag, type = "SMOTEBagging", allowParallel = FALSE, ...)
     {
         # Input:
