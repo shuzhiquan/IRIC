@@ -30,7 +30,7 @@ bbaging.data.frame <-
         data <- data.frame(x,y)
         tgt <- length(data)
         x.nam <- names(x)
-        form <- as.formula(paste("y ~ ", paste(x.nam, collapse = "+")))
+        form <- as.formula(paste("y~ ", paste(x.nam, collapse = "+")))
         classTable  <- table(data[, tgt])
         classTable  <- sort(classTable, decreasing = TRUE)
         classLabels  <- names(classTable)
@@ -148,7 +148,7 @@ predict.bbag<-
 treeBag <- list(
     fit = function(form, data)
     {
-        options(java.parameters="-Xmx8048m")
+        #options(java.parameters="-Xmx8048m")
         # library("RWeka")
         library(rpart)
         # out<- J48(form, data)

@@ -24,10 +24,10 @@ EasyEnsemble.data.frame <-
         library(foreach)
         if (allowParallel) library(doParallel) 
         
+        funcCall <- match.call(expand.dots = FALSE)
         data <- data.frame(x, y)
         tgt <- length(data)
-        funcCall <- match.call(expand.dots = FALSE)
-        tgt <- which(names(data) == as.character(form[[2]]))
+        #tgt <- which(names(data) == as.character(form[[2]]))
         classTable   <- table(data[, tgt])
         classTable   <- sort(classTable, decreasing = TRUE)
         classLabels  <- names(classTable)
@@ -36,16 +36,16 @@ EasyEnsemble.data.frame <-
         numMin <- length(indexMin)
         numMaj <- length(indexMaj)
         
-        x.nam <- names(x)
-        form <- as.formula(paste("y ~ ", paste(x.nam, collapse = "+")))
+        #x.nam <- names(x)
+        #form <- as.formula(paste("y~ ", paste(x.nam, collapse = "+")))
         H      <- list()
         
-        fitter <- function(form, data, indexMaj, numMin, indexMin)
+        fitter <- function(tgt, data, indexMaj, numMin, indexMin)
         {
             source("code/Ensemble-based level/BalanceBoost.R")
             indexMajCurrent <- sample(indexMaj, numMin)
             dataCurrent <- data[c(indexMin, indexMajCurrent),]      
-            out <- bboost.formula(dataCurrent[, -tgt], dataCurrent[,tgt], type = "AdaBoost")
+            out <- bboost.data.frame(dataCurrent[, -tgt], dataCurrent[,tgt], type = "AdaBoost")
         }
         if (allowParallel) {
             `%op%` <- `%dopar%`
@@ -56,7 +56,7 @@ EasyEnsemble.data.frame <-
         }
         H  <- foreach(i = seq(1:iter),
                       .verbose = FALSE,
-                      .errorhandling = "stop") %op% fitter(form, data , indexMaj, numMin, indexMin)
+                      .errorhandling = "stop") %op% fitter(tgt, data , indexMaj, numMin, indexMin)
         
         if (allowParallel) stopCluster(cl)
         

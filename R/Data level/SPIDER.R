@@ -14,7 +14,7 @@ SPIDER <-
         # Inputs:
         #       X   : A data frame of the predictors from training data
         #       y   : A vector of response variable from training data
-        #    method : Type of modification of the minority class in the second phase, including ¡°weak¡±, ¡°relabel¡±, ¡°strong¡±
+        #    method : Type of modification of the minority class in the second phase, including ??weak??, ??relabel??, ??strong??
     {
         data <- data.frame(x, y)
         numRow <- dim(data)[1]

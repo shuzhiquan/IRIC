@@ -39,7 +39,7 @@ bboost.data.frame <-
         
         #initialization
         x.nam <- names(x)
-        form <- as.formula(paste("y ~ ", paste(x.nam, collapse = "+")))
+        form <- as.formula(paste("y~ ", paste(x.nam, collapse = "+")))
         H      <- list()
         alpha  <- rep(0, iter)
         oldWeight <- rep(1/numRow, numRow)
@@ -172,20 +172,24 @@ predict.bboost<-
         if(is.null(x)) stop("please provide predictors for prediction")
         if(is.null(y)) stop("please provide a label vector for prediction")
         data <- data.frame(x, y)
-        btPred <- sapply(obj$fits, obj$base$pred, data = data , type = "class")
-        obj$base$aggregate(btPred, obj$alpha, obj$classLabels, type) 
+        btPred <- sapply(obj$fits, obj$base$pred, data = data)
+        obj$base$aggregate(btPred, obj$alpha, obj$classLabels, type=type) 
     }
 
 treeBoost <- list(
     fit = function(form, data)
     {
-        library("RWeka")
-        out<- J48(form, data)
+        # options(java.parameters="-Xmx8048m")
+        # library("RWeka")
+        library(rpart)
+        # out<- J48(form, data)
+        out<-rpart(form,data)
+        return(out)
     },
     
-    pred = function(object, data, type)
+    pred = function(object, data, type="class")
     {
-        out <- predict(object, data,  type)
+        out <- predict(object, data,  type=type)
     },
     
     aggregate = function(x, weight, classLabels, type = "class")

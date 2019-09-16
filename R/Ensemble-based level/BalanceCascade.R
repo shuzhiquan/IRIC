@@ -45,7 +45,7 @@ BalanceCascade.data.frame  <-
                 numMin  <- length(indexMaj)
             indexMajSampling <- sample(indexMaj, numMin)
             dataCurrent <- data[c(indexMin, indexMajSampling),]      
-            H[[i]] <- bboost.formula(dataCurrent[, -tgt], dataCurrent[,tgt], type = "AdaBoost")
+            H[[i]] <- bboost.data.frame(dataCurrent[, -tgt], dataCurrent[,tgt], type = "AdaBoost")
             pred   <- predict(H[[i]], data[c(indexMaj), -tgt], data[c(indexMaj), tgt], type ="probability") 
             sortIndex   <- order(pred[, 2], decreasing = TRUE)
             numkeep     <- round(length(indexMaj)*FP)
@@ -74,7 +74,7 @@ predict.BalanceCascade<-
     {
         
         #  input 
-        #     obj: Output from bboost.formula
+        #     obj: Output from BalanceCascade.data.frame
         #       x: A data frame of the predictors from testing data
         #       y: A vector of response variable from testing data
         
