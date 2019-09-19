@@ -13,7 +13,7 @@ MWMOTE<-
         # INPUTS
         #    x: A data frame of the predictors from training data
         #    y: A vector of response variable from training data
-        #    pecr_over/100: Number of new instance generated for each minority instance
+        #    pecr_over: Percent of new instance generated for each minority instance
         #    k1: Number of neighbours for filtering
         #    k2: Number of neighbours for selecting majority instances
         #    CThresh: Threshold to determine the number of clusters
