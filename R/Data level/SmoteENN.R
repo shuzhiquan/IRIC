@@ -8,7 +8,7 @@ SmoteENN<-
         # INPUTS
         #    x: A data frame of the predictors from training data
         #    y: A vector of response variable from training data
-        #    percOver/100: Number of new instance generated for each minority instance
+        #    percOver: Percent of new instance generated for each minority instance
         #    k1: Number of the nearest neighbors
         #    k2: Number of neighbours for ENN
         #  allowParallel: A logical number to control the parallel computing. If allowParallel = TRUE, the function is run using parallel techniques
