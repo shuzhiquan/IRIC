@@ -15,7 +15,7 @@ bbaging.data.frame <-
         # Input:
         #         x: A data frame of the predictors from training data
         #         y: A vector of response variable from training data
-        #    numBag: Number of bag
+        #    numBag: Number of bags
         #      base: Base learner
         #      type: Type of bagging-based algorithm, including "SMOTEBagging","RUSBagging","RBBagging" and "ROSBagging"
         # allowParallel: A logical number to control the parallel computing. If allowParallel =TRUE, the function is run using parallel techniques
