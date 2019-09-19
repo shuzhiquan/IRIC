@@ -34,8 +34,8 @@ The current version of IRIC (v1.1) provides a set of 19 approaches for imbalance
   <td rowspan=3 height=66 class=xl71 style='border-bottom:.5pt solid black;
   height:49.5pt;border-top:none'>Data level</td>
   <td class=xl66 style='border-top:none'>Oversampling</td>
-  <td class=xl66 style='border-top:none'>SMOTE，MWMOTE，ADASYN，Random
-  Oversampling</td>
+  <td class=xl66 style='border-top:none'>ADASYN, MWMOTE, Random
+  Oversampling, SMOTE</td>
  </tr>
  <tr height=22 style='height:16.5pt'>
   <td height=22 class=xl65 style='height:16.5pt'>Undersampling</td>
@@ -49,15 +49,15 @@ The current version of IRIC (v1.1) provides a set of 19 approaches for imbalance
   <td rowspan=3 height=66 class=xl67 style='border-bottom:.5pt solid black;
   height:49.5pt'>Ensemble-based learning</td>
   <td class=xl65>BalanceBagging</td>
-  <td class=xl65>RUSBagging, ROSBagging, RBBagging, SMOTEBagging</td>
+  <td class=xl65>RBBagging, ROSBagging,RUSBagging,SMOTEBagging</td>
  </tr>
  <tr height=22 style='height:16.5pt'>
   <td height=22 class=xl65 style='height:16.5pt'>BalanceBoost</td>
-  <td class=xl65>RUSBoost, SMOTEBoost, AdaC2</td>
+  <td class=xl65> AdaC2, RUSBoost, SMOTEBoost</td>
  </tr>
  <tr height=22 style='height:16.5pt'>
   <td height=22 class=xl69 style='height:16.5pt'>Hybrid Ensemble</td>
-  <td class=xl69>EasyEnsemble, BalanceCascade</td>
+  <td class=xl69>BalanceCascade, EasyEnsemble </td>
  </tr>
 </table>
 
