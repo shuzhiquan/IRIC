@@ -319,11 +319,8 @@ CSC45.data.frame <-
         object
     }
 
-predict.CSC45 <- function(object, x.test, y.test, type = "class")
+predict.CSC45 <- function(object, x.test, type = "class")
 {
-    Call <- match.call()
-    indx <- match(c("x.test", "y.test"), names(Call), nomatch = 0L)
-    if (indx[1] == 0L | indx[2] == 0L) stop("'predictors for test' and 'label' arguments are required")
     if (!type %in% c("class", "prob"))
         stop("type must be class or prob")
     data       <- x.test
