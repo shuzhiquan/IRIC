@@ -81,25 +81,31 @@ load("Korean.RDa")
 #Run the script file of SMOTE
 source("SMOTE.R")
 #data split
-sub<-createDataPartition(Korean$Churn,p=0.75,list=FALSE)
-#Training set without sampling
-trainset<-Korean[sub,]
-testset<-Korean[-sub,]
-#view the class ratio of the training set
-table(trainset$Churn)
+sub <- createDataPartition(Korean$Churn,p=0.75,list=FALSE)
+trainset <- Korean[sub,]
+testset <- Korean[-sub,]
+x <- trainset[, -11]
+y <- trainset[, 11]
 #call the SMOTE
-newtrainset<-SMOTE(Churn~.,trainset) 
-#view the class ratio of the new training set
-table(newtrain$Churn)  
+newData<- SMOTE(x, y)
 ```
 #### CSC4.5
 ```
 #Example of CSC4.5 
-#Training model
 #load CSC4.5
 source("CSC45.R")
-csc45train<-CSC45(Churn~., trainset)
-csc45predict<-predict.CSC45(csc45predict, testset)
+library(caret)
+#Load data set
+load("Korean.RDa")
+#Data split
+sub <- createDataPartition(Korean$Churn,p=0.75,list=FALSE)
+trainset <- Korean[sub,]
+testset <- Korean[-sub,]
+x <- trainset[, -11]
+y <- trainset[, 11]
+#Training model
+model <- CSC45(x, y, pruning = TRUE)
+output <- predict (model, x) 
 ```
 #### RBBagging
 ```
@@ -111,13 +117,15 @@ load(”Korean.RDa”)
 #Run the script file of RBBagging 
 source(”BalanceBagging.R”)
 #Data split
-sub<−createDataPartition (Korean$Churn,p=0.75, list=FALSE) 
-trainset<−Korean [sub, ] 
-testset<−Korean[−sub, ] 
+sub <- createDataPartition(Korean$Churn, p=0.75,list=FALSE)
+trainset <- Korean[sub,]
+testset <- Korean[-sub,]
+x <- trainset[, -11]
+y <- trainset[, 11]
 #call the RBBaging for model training train 
-RB<−bbagging (Churn˜., trainset, type=”RBBagging”)
+model <- bbagging(x, y, type=”RBBagging", allowParallel=TRUE)
 #prediction
-pre RB<−predict. bbag(RB, testset)
+output <- predict (model, x)
 ```
 
 
