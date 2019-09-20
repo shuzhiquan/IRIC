@@ -177,10 +177,7 @@ predict.bboost<-
 treeBoost <- list(
     fit = function(form, data)
     {
-        # options(java.parameters="-Xmx8048m")
-        # library("RWeka")
         library(rpart)
-        # out<- J48(form, data)
         out<-rpart(form,data)
         return(out)
     },
