@@ -21,7 +21,7 @@ bboost.data.frame <-
         
         
         if (!type %in% c("AdaBoost", "SMOTEBoost","RUSBoost", "AdaC2"))
-            stop("type must be AdaBoost, SMOTEBoost, RUSBoost or AdaC2")
+            stop("type must be AdaBoost, SMOTEBOost, RUSBoost or AdaC2")
         funcCall <- match.call(expand.dots = FALSE)
         
         
@@ -65,7 +65,7 @@ bboost.data.frame <-
             if (type == "SMOTEBoost") {
                 source("code/Data level/SMOTE.R")
                 perOver  <- ((numMaj - numMin)/numMin)*100
-                dataSmoteSample  <- SMOTE(data[, -tgt], data[, tgt], perOver)
+                dataSmoteSample  <- SMOTE(form, data, perOver)
                 numNew <- dim(dataSmoteSample)[1]
                 resampleWeight <- rep(NA, numNew)
                 resampleWeight[1:numRow] <- oldWeight
@@ -97,7 +97,7 @@ bboost.data.frame <-
             
             if (type == "RUSBoost" | type == "SMOTEBoost")
             {
-                weakPrediction <- base$pred(H[[t]], data, type = "prob")
+                weakPrediction <- base$pred(H[[t]], data, type = "probability")
                 loss <- sum(oldWeight * abs(weakPrediction[, 2] - as.numeric(data[, tgt]) + 1))       
                 beta <- loss/(1-loss)
                 alpha[t]  <- log(1/beta)  
@@ -162,16 +162,14 @@ bboost.data.frame <-
     }
 
 predict.bboost<-    
-    function(obj, x, y, type = "class")
+    function(obj, x, type = "class")
     {
         #  input 
         #     obj: Output from bboost.formula
         #       x: A data frame of the predictors from testing data
-        #       y: A vector of response variable from testing data
         
-        if(is.null(x)) stop("please provide predictors for prediction")
-        if(is.null(y)) stop("please provide a label vector for prediction")
-        data <- data.frame(x, y)
+        if(is.null(x)) stop("please provide predictors for prediction")   
+        data <- x
         btPred <- sapply(obj$fits, obj$base$pred, data = data)
         obj$base$aggregate(btPred, obj$alpha, obj$classLabels, type=type) 
     }

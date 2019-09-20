@@ -75,19 +75,17 @@ EasyEnsemble.data.frame <-
 
 
 predict.EasyEnsemble <-
-    function(obj, x, y, type = "class")
+    function(obj, x, type = "class")
     {
         
         #  input 
         #     obj: Output from bboost.formula
-        #       x: A data frame of the predictors from testing data
-        #       y: A vector of response variable from testing data
+        #       x: A data frame of the predictors from testing data    
         
         if(is.null(x)) stop("please provide predictors for prediction")
-        if(is.null(y)) stop("please provide a label vector for prediction")
         if (!type %in% c("class", "probability"))
             stop("wrong setting with type")
-        data <- data.frame(x, y)
+        data <- x
         classLabels <- obj$classLabels
         numClass    <- length(classLabels)
         numIns      <- dim(data)[1]

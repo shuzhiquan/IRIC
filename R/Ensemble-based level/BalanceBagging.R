@@ -15,7 +15,7 @@ bbaging.data.frame <-
         # Input:
         #         x: A data frame of the predictors from training data
         #         y: A vector of response variable from training data
-        #    numBag: Number of bags
+        #    numBag: Number of bag
         #      base: Base learner
         #      type: Type of bagging-based algorithm, including "SMOTEBagging","RUSBagging","RBBagging" and "ROSBagging"
         # allowParallel: A logical number to control the parallel computing. If allowParallel =TRUE, the function is run using parallel techniques
@@ -130,16 +130,14 @@ bbaging.data.frame <-
 
 
 predict.bbag<-    
-    function(obj, x, y, type = "class")
+    function(obj, x, type = "class")
     {
         #  input 
         #     obj: Output from bboost.formula
-        #       x: A data frame of the predictors from testing data
-        #       y: A vector of response variable from testing data
+        #       x: A data frame of the predictors from testing data       
         
         if(is.null(x)) stop("please provide predictors for prediction")
-        if(is.null(y)) stop("please provide a label vector for prediction")
-        data <- data.frame(x, y)
+        data <- x
         btPred <- sapply(obj$fits, obj$base$pred, data = data)
         obj$base$aggregate(btPred, obj$classLabels, type) 
     }
