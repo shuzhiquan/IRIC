@@ -103,8 +103,9 @@ trainset <- Korean[sub,]
 testset <- Korean[-sub,]
 x <- trainset[, -11]
 y <- trainset[, 11]
-#Training model
+#training model
 model <- CSC45(x, y, pruning = TRUE)
+#Prediction
 output <- predict (model, x) 
 ```
 #### RBBagging
